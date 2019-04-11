@@ -2,7 +2,27 @@
     <div class="user-dashboard">
         <div class="row">
             <div class="col-lg-4">
-
+                <div class="card">
+                    <div class="card-header">
+                        <h3>
+                            <i class="bx bx-plus"></i>
+                            Add new machine
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <h5>
+                            Your machine password:
+                            <span class="machine-password" v-bind:class="{'show': passwordShown}">
+                                        {{user.machine_password}}
+                                    </span>
+                            <button class="bx bx-show toggle-machine-password" title="Show machine password"
+                                    @click="togglePassword"></button>
+                        </h5>
+                        <button class="btn btn-primary btn-sm" @click="renewMachinePass">
+                            Renew machine pass
+                        </button>
+                    </div>
+                </div>
             </div>
             <div class="col-lg-8">
                 <div class="card">
@@ -25,25 +45,6 @@
                             <p class="m-0" v-if="!machine.online">
                                 OFFLINE
                             </p>
-                        </div>
-                        <div class="card p-2 mt-5">
-                            <div>
-                                <h3>
-                                    <i class="bx bx-plus"></i>
-                                    Add new machine
-                                </h3>
-                                <h5>
-                                    Your machine password:
-                                    <span class="machine-password" v-bind:class="{'show': passwordShown}">
-                                        {{user.machine_password}}
-                                    </span>
-                                    <button class="bx bx-show toggle-machine-password" title="Show machine password"
-                                            @click="togglePassword"></button>
-                                </h5>
-                                <button class="btn btn-primary btn-sm" @click="renewMachinePass">
-                                    Renew machine pass
-                                </button>
-                            </div>
                         </div>
                     </div>
                 </div>

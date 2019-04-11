@@ -312,6 +312,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1865,99 +1866,97 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "user-dashboard" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-lg-4" }),
+      _c("div", { staticClass: "col-lg-4" }, [
+        _c("div", { staticClass: "card" }, [
+          _vm._m(0),
+          _vm._v(" "),
+          _c("div", { staticClass: "card-body" }, [
+            _c("h5", [
+              _vm._v(
+                "\n                        Your machine password:\n                        "
+              ),
+              _c(
+                "span",
+                {
+                  staticClass: "machine-password",
+                  class: { show: _vm.passwordShown }
+                },
+                [
+                  _vm._v(
+                    "\n                                    " +
+                      _vm._s(_vm.user.machine_password) +
+                      "\n                                "
+                  )
+                ]
+              ),
+              _vm._v(" "),
+              _c("button", {
+                staticClass: "bx bx-show toggle-machine-password",
+                attrs: { title: "Show machine password" },
+                on: { click: _vm.togglePassword }
+              })
+            ]),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass: "btn btn-primary btn-sm",
+                on: { click: _vm.renewMachinePass }
+              },
+              [
+                _vm._v(
+                  "\n                        Renew machine pass\n                    "
+                )
+              ]
+            )
+          ])
+        ])
+      ]),
       _vm._v(" "),
       _c("div", { staticClass: "col-lg-8" }, [
         _c("div", { staticClass: "card" }, [
-          _vm._m(0),
+          _vm._m(1),
           _vm._v(" "),
           _c(
             "div",
             { staticClass: "card-body" },
-            [
-              _vm._l(_vm.machines, function(machine) {
-                return _c("div", { staticClass: "card p-2 mb-2" }, [
-                  _c("h4", [
-                    _c("i", {
-                      staticClass: "bx bx-laptop",
-                      class: {
-                        "text-success": machine.online,
-                        "text-danger": !machine.online
-                      }
-                    }),
-                    _vm._v(
-                      "\n                            " +
-                        _vm._s(machine.name) +
-                        "\n                        "
-                    )
-                  ]),
-                  _vm._v(" "),
-                  machine.online
-                    ? _c("p", { staticClass: "m-0" }, [
-                        _c("strong", [
-                          _vm._v(
-                            "\n                                ONLINE\n                            "
-                          )
-                        ])
-                      ])
-                    : _vm._e(),
-                  _vm._v(" "),
-                  !machine.online
-                    ? _c("p", { staticClass: "m-0" }, [
-                        _vm._v(
-                          "\n                            OFFLINE\n                        "
-                        )
-                      ])
-                    : _vm._e()
-                ])
-              }),
-              _vm._v(" "),
-              _c("div", { staticClass: "card p-2 mt-5" }, [
-                _c("div", [
-                  _vm._m(1),
-                  _vm._v(" "),
-                  _c("h5", [
-                    _vm._v(
-                      "\n                                Your machine password:\n                                "
-                    ),
-                    _c(
-                      "span",
-                      {
-                        staticClass: "machine-password",
-                        class: { show: _vm.passwordShown }
-                      },
-                      [
-                        _vm._v(
-                          "\n                                    " +
-                            _vm._s(_vm.user.machine_password) +
-                            "\n                                "
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c("button", {
-                      staticClass: "bx bx-show toggle-machine-password",
-                      attrs: { title: "Show machine password" },
-                      on: { click: _vm.togglePassword }
-                    })
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "button",
-                    {
-                      staticClass: "btn btn-primary btn-sm",
-                      on: { click: _vm.renewMachinePass }
-                    },
-                    [
-                      _vm._v(
-                        "\n                                Renew machine pass\n                            "
-                      )
-                    ]
+            _vm._l(_vm.machines, function(machine) {
+              return _c("div", { staticClass: "card p-2 mb-2" }, [
+                _c("h4", [
+                  _c("i", {
+                    staticClass: "bx bx-laptop",
+                    class: {
+                      "text-success": machine.online,
+                      "text-danger": !machine.online
+                    }
+                  }),
+                  _vm._v(
+                    "\n                            " +
+                      _vm._s(machine.name) +
+                      "\n                        "
                   )
-                ])
+                ]),
+                _vm._v(" "),
+                machine.online
+                  ? _c("p", { staticClass: "m-0" }, [
+                      _c("strong", [
+                        _vm._v(
+                          "\n                                ONLINE\n                            "
+                        )
+                      ])
+                    ])
+                  : _vm._e(),
+                _vm._v(" "),
+                !machine.online
+                  ? _c("p", { staticClass: "m-0" }, [
+                      _vm._v(
+                        "\n                            OFFLINE\n                        "
+                      )
+                    ])
+                  : _vm._e()
               ])
-            ],
-            2
+            }),
+            0
           )
         ])
       ])
@@ -1970,8 +1969,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "card-header" }, [
-      _c("h1", { staticClass: "m-0" }, [
-        _vm._v("\n                        My machines\n                    ")
+      _c("h3", [
+        _c("i", { staticClass: "bx bx-plus" }),
+        _vm._v(
+          "\n                        Add new machine\n                    "
+        )
       ])
     ])
   },
@@ -1979,11 +1981,10 @@ var staticRenderFns = [
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("h3", [
-      _c("i", { staticClass: "bx bx-plus" }),
-      _vm._v(
-        "\n                                Add new machine\n                            "
-      )
+    return _c("div", { staticClass: "card-header" }, [
+      _c("h1", { staticClass: "m-0" }, [
+        _vm._v("\n                        My machines\n                    ")
+      ])
     ])
   }
 ]
