@@ -1,47 +1,41 @@
 <template>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-7">
-
-            </div>
-            <div class="col-lg-3">
-                <div class="card">
-                    <div class="card-header">
-                        <h1 class="m-0">
-                            Login form
-                        </h1>
-                    </div>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="login">Email</label>
-                            <input type="text" class="form-control" id="login" v-model="email"/>
-                        </div>
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" id="password" v-model="password"/>
-                        </div>
-                        <button class="btn btn-primary" @click="userLogin">
-                            Login
-                        </button>
-                    </div>
+    <div class="row">
+        <div class="col-lg-6 d-flex align-items-center justify-content-end">
+            <i class="bx bx-bar-chart-alt"></i>
+        </div>
+        <div class="col-lg-6">
+            <div class="card">
+                <div class="card-header">
+                    <h1 class="m-0">
+                        Login
+                    </h1>
                 </div>
-            </div>
-            <div class="col-lg-2">
-
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="login">Email</label>
+                        <input type="text" class="form-control" id="login" v-model="email"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" v-model="password"/>
+                    </div>
+                    <button class="btn btn-primary" @click="userLogin">
+                        Login
+                    </button>
+                </div>
             </div>
         </div>
     </div>
+
 </template>
 
 <style lang="scss" scoped>
-    .container-fluid{
-        height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        .row{
-            width: 100%;
-        }
+    .bx-bar-chart-alt {
+        font-size: 18rem;
+    }
+
+    .row {
+        margin-top: 12rem;
     }
 </style>
 

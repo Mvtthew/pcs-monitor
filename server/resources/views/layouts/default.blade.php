@@ -15,6 +15,7 @@
 
     {{-- Styles --}}
     <link rel="stylesheet" href="/css/app.css?v=2">
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@1.9.3/css/boxicons.min.css' rel='stylesheet'>
 
     {{-- Scripts --}}
     <script src="/js/app.js" defer></script>
@@ -24,7 +25,9 @@
 <body>
 <main id="app">
     @include('inc.navbar')
-    @yield('content')
+    <div class="container my-4">
+        @yield('content')
+    </div>
 </main>
 </body>
 </html>

@@ -2,8 +2,6 @@
 
 @section('content')
 
-    <p>
-        User dashboard!
-    </p>
+    <user-dashboard></user-dashboard>
 
 @endsection
