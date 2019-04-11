@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'PagesController@GetHome');
+
+Auth::routes();
+Route::get('/logout', function () {
+    Auth::logout();
 });
