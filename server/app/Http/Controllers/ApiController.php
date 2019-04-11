@@ -60,11 +60,19 @@ class ApiController extends Controller
 
         foreach ($machines as $machine) {
 
+            $now = Carbon::now()->timestamp;
+
+            if ($now - strtotime($machine->reported) < 5) {
+                $online = true;
+            } else {
+                $online = false;
+            }
+
             $machineReturn = [
                 'name' => $machine->name,
                 'desc' => $machine->desc,
                 'reported' => $machine->reported,
-                'online' => false
+                'online' => $online
             ];
 
             array_push($machinesReturn, $machineReturn);
@@ -93,6 +101,19 @@ class ApiController extends Controller
         $machine->save();
 
         return json_encode($machine);
+    }
+
+    public function reportMachine(Request $request) {
+
+        $machine = Machine::where('machine_token', $request->post('token'))->first();
+
+        $machine->reported = Carbon::now()->toDateTimeString();
+        $machine->save();
+
+        return json_encode([
+            'message' => 'Machine reported successfully!'
+        ]);
+
     }
 
 }
