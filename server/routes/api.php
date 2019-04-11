@@ -15,6 +15,19 @@ use Illuminate\Http\Request;
 
 Route::post('/login', 'ApiController@login');
 
+
+// Users API
+Route::middleware('auth:api')->prefix('user')->group(function () {
+    Route::get('machines', 'ApiController@getMachines');
+    Route::post('renewPassword', 'ApiController@renewPassword');
+});
+
+
+// Machines API
+Route::prefix('machine')->group(function () {
+    Route::post('new', 'ApiController@registerMachine');
+});
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
