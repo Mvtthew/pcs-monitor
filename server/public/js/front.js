@@ -308,6 +308,10 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -1874,7 +1878,13 @@ var render = function() {
               _vm._l(_vm.machines, function(machine) {
                 return _c("div", { staticClass: "card p-2 mb-2" }, [
                   _c("h4", [
-                    _c("i", { staticClass: "bx bx-laptop" }),
+                    _c("i", {
+                      staticClass: "bx bx-laptop",
+                      class: {
+                        "text-success": machine.online,
+                        "text-danger": !machine.online
+                      }
+                    }),
                     _vm._v(
                       "\n                            " +
                         _vm._s(machine.name) +
@@ -1884,9 +1894,11 @@ var render = function() {
                   _vm._v(" "),
                   machine.online
                     ? _c("p", { staticClass: "m-0" }, [
-                        _vm._v(
-                          "\n                            ONLINE\n                        "
-                        )
+                        _c("strong", [
+                          _vm._v(
+                            "\n                                ONLINE\n                            "
+                          )
+                        ])
                       ])
                     : _vm._e(),
                   _vm._v(" "),

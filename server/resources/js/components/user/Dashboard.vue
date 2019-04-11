@@ -14,11 +14,13 @@
                     <div class="card-body">
                         <div class="card p-2 mb-2" v-for="machine in machines">
                             <h4>
-                                <i class="bx bx-laptop"></i>
+                                <i class="bx bx-laptop" v-bind:class="{'text-success': machine.online, 'text-danger': !machine.online}"></i>
                                 {{machine.name}}
                             </h4>
                             <p class="m-0" v-if="machine.online">
-                                ONLINE
+                                <strong>
+                                    ONLINE
+                                </strong>
                             </p>
                             <p class="m-0" v-if="!machine.online">
                                 OFFLINE
@@ -35,7 +37,8 @@
                                     <span class="machine-password" v-bind:class="{'show': passwordShown}">
                                         {{user.machine_password}}
                                     </span>
-                                    <button class="bx bx-show toggle-machine-password" title="Show machine password" @click="togglePassword"></button>
+                                    <button class="bx bx-show toggle-machine-password" title="Show machine password"
+                                            @click="togglePassword"></button>
                                 </h5>
                                 <button class="btn btn-primary btn-sm" @click="renewMachinePass">
                                     Renew machine pass
@@ -56,6 +59,7 @@
             filter: blur(0);
         }
     }
+
     .toggle-machine-password {
         cursor: pointer;
         border: unset;
