@@ -11,9 +11,14 @@
 |
 */
 
-Route::get('/', 'PagesController@GetHome');
+Route::get('/', 'PagesController@getHome');
+
+Route::prefix('user')->group(function () {
+    Route::get('dashboard', 'UserController@getDashboard');
+});
 
 Auth::routes();
 Route::get('/logout', function () {
     Auth::logout();
+    return redirect('/login');
 });

@@ -7,17 +7,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" href="favicon.png">
+    <link rel="icon" href="/favicon.png">
 
     <title>
         PCS-monitor | Mvtthew
     </title>
 
     {{-- Styles --}}
-    <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/app.css?v=2">
 
     {{-- Scripts --}}
     <script src="/js/app.js" defer></script>
+    <script src="/js/front.js" defer></script>
 
 </head>
 <body>
