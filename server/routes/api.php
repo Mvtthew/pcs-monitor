@@ -26,6 +26,7 @@ Route::middleware('auth:api')->prefix('user')->group(function () {
 // Machines API
 Route::prefix('machine')->group(function () {
     Route::post('new', 'ApiController@registerMachine');
+    Route::post('report', 'ApiController@reportMachine');
 });
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
