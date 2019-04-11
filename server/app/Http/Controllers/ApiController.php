@@ -32,4 +32,12 @@ class ApiController extends Controller
 
         return Route::dispatch($res);
     }
+
+    public function createMachine(Request $request) {
+
+        $user_id = $request->user()->id;
+
+        return $user_id;
+
+    }
 }
